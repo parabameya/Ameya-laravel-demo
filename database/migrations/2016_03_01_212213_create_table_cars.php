@@ -19,7 +19,7 @@ class CreateTableCars extends Migration
             $table->string('make');
             $table->string('model');
             $table->string('color');
-            $table->string('user_id',22)->foreign('user_id')->references('userID')->on('users');
+            $table->string('userID', 22)->foreign('userID')->references('userID')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

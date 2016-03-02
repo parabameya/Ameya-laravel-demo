@@ -1,24 +1,27 @@
 
-
 @extends('layouts.app')
+
+
+
 
 @section('content')
 <div class="container">
     <div class="content">
-        <div class="title">This is a view for Cars Data </div>
-        <button type="button" onClick="posttest();" class="btn btn-warning btn-xs">Hello</button>
+        <h3>Here you can see the cars which you own </h3>
+        {{$cars}}
+        <table class="table datatable" id="displayCarData">
+        </table>
     </div>
 </div>
 @endsection
 
-
-@section('script')
-<script>
+@section('page-script')
+<script type="text/javascript">
     
-console.log('works');
-    public function posttest() {
-        alert('cleic');
-    }
-
 </script>
+
 @stop
+
+
+
+
