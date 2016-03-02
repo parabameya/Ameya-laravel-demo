@@ -33,16 +33,6 @@ class AuthController extends Controller
     protected $redirectPath = '/cars';
 
     /**
-     * Create a new authentication controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        // $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
-    }
-
-    /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
@@ -63,12 +53,6 @@ class AuthController extends Controller
             // Authentication passed...
             return redirect()->intended('cars');
         }
-    }
-
-
-    public function getLogin() {
-        return "HI";
-        return view('auth.login');
     }
 
     /**
