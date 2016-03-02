@@ -28,7 +28,9 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    // protected $redirectTo = '/';
+    protected $loginPath = '/login';
+    protected $redirectPath = '/cars';
 
     /**
      * Create a new authentication controller instance.
@@ -37,7 +39,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        // $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
     /**
@@ -55,6 +57,20 @@ class AuthController extends Controller
         ]);
     }
 
+    public function authenticate()
+    {
+        if (Auth::attempt(['email' => $email, 'password' => $password], $remember)) {
+            // Authentication passed...
+            return redirect()->intended('cars');
+        }
+    }
+
+
+    public function getLogin() {
+        return "HI";
+        return view('auth.login');
+    }
+
     /**
      * Create a new user instance after a valid registration.
      *
@@ -65,6 +81,7 @@ class AuthController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'userID' => str_random(22),
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);

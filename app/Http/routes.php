@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('cars', 'CarsController');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -33,6 +33,6 @@ Route::group(['middleware' => ['web']], function () {
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
-
-    Route::get('/home', 'HomeController@index');
+    // Route::get('/home', 'HomeController@index');
+	Route::get('/cars', 'CarsController@index');
 });
