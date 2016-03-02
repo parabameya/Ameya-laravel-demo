@@ -14,21 +14,18 @@
                                 <input type="text" class="form-control" name="make">
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label class="col-md-4 control-label">Model</label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="model">
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label class="col-md-4 control-label">Color</label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="color">
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label class="col-md-4 control-label">VIN</label>
                             <div class="col-md-6">
@@ -36,7 +33,6 @@
                             </div>
                         </div>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="button" id="addCarButton" class="btn btn-primary">
@@ -53,8 +49,8 @@
 @endsection
 
 @section('page-script')
-
 <script type="text/javascript">
+
     $('#addCarButton').click(function() {
         var postData = $('#addCarForm').serialize();
         $.post("{{ url('/cars/postAddCar') }}", postData, function() {
@@ -64,6 +60,5 @@
             alert(response.responseJSON.message);
         });
     });
-
 </script>
 @stop

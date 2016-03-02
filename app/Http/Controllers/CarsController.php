@@ -13,16 +13,13 @@ use Carbon\Carbon;
 
 class CarsController extends Controller
 {
-
-	public function __construct()
-	{
+	public function __construct() {
 	    $this->middleware('auth');
 	}
 
 	public function index() {
 		$cars = Auth::user()->cars;		
 		return view('cars.index', compact('cars'));
-		
 	}
 
     public function postCars() {
@@ -30,9 +27,7 @@ class CarsController extends Controller
 		return view('cars.addcar');
     }
 
-    public function postAddCar(Request $request)
-    {
-
+    public function postAddCar(Request $request) {
     	$validator = Validator::make($request->all(), [
             'make' => 'required|max:255',
             'vin' => 'required',
