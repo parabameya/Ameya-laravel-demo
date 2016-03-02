@@ -20,6 +20,6 @@ class CarsController extends Controller
 	}
 
     public function postCars() {
-    	return "1";
+    	return Auth::user();
     }
 }

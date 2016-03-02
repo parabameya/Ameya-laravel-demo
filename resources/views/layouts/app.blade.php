@@ -48,6 +48,9 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/cars') }}">Home</a></li>
+                    @if (Auth::check())
+                        <li><a href="{{ url('/cars/addcar') }}">Add Car</a></li>
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
